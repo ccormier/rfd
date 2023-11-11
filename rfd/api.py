@@ -53,6 +53,7 @@ def get_threads(forum_id, pages):
                 raise Exception(
                     f"When collecting threads, received a status code: {response.status_code}"
                 )
+            #print(response.json().get("topics"))
             threads += response.json().get("topics")
     except JSONDecodeError as err:
         logging.error("Unable to decode threads. %s", err)
